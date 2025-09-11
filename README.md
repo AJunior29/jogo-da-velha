@@ -16,6 +16,81 @@ O jogo termina quando:
  - O tabuleiro está cheio (empate).
 
 ---
+
+# Como Fazer:
+Vou explicar os blocos principais do seu código (usei nomes legíveis onde for útil):
+
+1 - import java.util.Scanner;
+
+   - Importa a classe Scanner para ler a entrada do usuário pelo terminal.
+
+2 - public class jogo_da_velha { ... }
+
+   - Declaração da classe principal. Observação: por convenção em Java usa-se JogoDaVelha (CamelCase). Se renomear a classe, renomeie também o arquivo para JogoDaVelha.java.
+
+3- public static void main(String[] args) { ... }
+
+   - Ponto de entrada do programa.
+
+4 - char[][] board = new char[3][3];
+
+   - Cria o tabuleiro 3x3 usando char.
+
+5 - char currentPlayer = 'X';
+
+   - Variável que guarda o jogador atual (começa com 'X').
+
+6 - Scanner scanner = new Scanner(System.in);
+
+   - Cria o scanner para ler linhas/colunas digitadas.
+
+7 - Inicialização do tabuleiro:
+    - for (int i = 0; i < 3; i++)
+        for (int j = 0; j < 3; j++)
+          board[i][j] = ' ';
+
+ - Preenche cada célula com espaço em branco.
+
+8 - Loop principal while (true) { ... } — cada iteração representa um turno:
+
+   - printBoard(board); — exibe o tabuleiro atual.
+    
+  - Pede linha e coluna: int row = scanner.nextInt(); int col = scanner.nextInt();
+    
+    - Validação:
+    
+      - if (row < 0 || row > 2 || col < 0 || col > 2 || board[row][col] != ' ') {
+        System.out.println("Posição inválida. Tente novamente.");
+        continue;
+        }
+        
+  - checa se a posição está no intervalo e se não está ocupada.
+    
+  - Marca a posição: board[row][col] = currentPlayer;
+    
+  - Verifica vitória: if (checkWin(board, currentPlayer)) { ... }
+    
+  - Se vitória: imprime tabuleiro e a mensagem e break.
+    
+  - Verifica empate: if (isBoardFull(board)) { ... }
+    
+  - Troca jogador:
+    
+      - currentPlayer = (currentPlayer == 'X') ? 'O' : 'X';
+
+9 - scanner.close();
+    - Fecha o scanner ao final.
+
+10 - static void printBoard(char[][] board) { ... }
+     - Imprime índices e o tabuleiro com "|" e "-----" entre linhas.
+
+11 - static boolean checkWin(char[][] board, char player) { ... }
+     - Verifica linhas, colunas e duas diagonais para ver se player venceu.
+
+12 - static boolean isBoardFull(char[][] board) { ... }
+     - Retorna true se não houver espaços vazios no tabuleiro.
+
+---
 ### `Código`
 import java.util.Scanner;
 

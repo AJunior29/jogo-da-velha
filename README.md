@@ -14,6 +14,20 @@ Jogadores jogam alternadamente (X e O).
 O jogo termina quando:
  - Um jogador completa uma linha, coluna ou diagonal.
  - O tabuleiro está cheio (empate).
+---
+
+# 🕹️ Como Jogar:
+Para jogar, siga estes passos no terminal:
+
+1. Execute o programa Java.
+2. O tabuleiro será exibido com linhas e colunas numeradas de 0 a 2.
+3. Quando for sua vez, digite dois números separados por espaço:  
+   - O primeiro número é a linha (0, 1 ou 2).
+   - O segundo número é a coluna (0, 1 ou 2).
+   - Exemplo: `1 2` (marca na linha 1, coluna 2).
+4. O jogo alterna entre os jogadores X e O até alguém vencer ou empatar.
+
+Se digitar uma posição inválida ou já ocupada, o programa pedirá para tentar novamente.
 
 ---
 
@@ -165,8 +179,8 @@ public class jogo_da_velha {
                 if (board[i][j] == ' ')
                     return false;
         return true;
+       }
     }
-}
 
 ---
 
